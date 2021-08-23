@@ -1,11 +1,14 @@
 import React from "react";
-import Slider from "meteor/empirica:slider";
 
 export default class TaskResponse extends React.Component {
-  handleChange = num => {
+  handleChange = event => {
+    const value = event.currentTarget.value;
     const { player } = this.props;
-    const value = Math.round(num * 100) / 100;
-    player.round.set("value", value);
+    // only allow value to be set if it is character
+    // code modified from https://stackoverflow.com/questions/52846347/reactjs-cannot-restrict-user-input-to-letters-only
+    if (value === "" || /^[A-Za-z]+$/.test(value))
+	// this should be changed to appending to the list (figure it out after making the redering function)
+	player.round.set("value", value);
   };
 
   handleSubmit = event => {
@@ -24,18 +27,15 @@ export default class TaskResponse extends React.Component {
     );
   }
 
-  renderSlider() {
+  renderInput() {
     const { player } = this.props;
     const value = player.round.get("value");
     return (
-      <Slider
-        min={0}
-        max={1}
-        stepSize={0.01}
-        labelStepSize={0.25}
+      <input
+        type={"text"}
         onChange={this.handleChange}
         value={value}
-        hideHandleOnEmpty
+        required
       />
     );
   }
@@ -50,8 +50,8 @@ export default class TaskResponse extends React.Component {
 
     return (
       <div className="task-response">
-        <form onSubmit={this.handleSubmit}>
-          {this.renderSlider()}
+        <form className="task-response-form" onSubmit={this.handleSubmit}>
+          {this.renderInput()}
 
           <button type="submit">Submit</button>
         </form>
@@ -59,3 +59,4 @@ export default class TaskResponse extends React.Component {
     );
   }
 }
+
