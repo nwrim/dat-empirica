@@ -22,6 +22,20 @@ export default class PlayerProfile extends React.Component {
       </div>
     );
   }
+  
+  renderRules() {
+  
+      return (
+      <div className="profile-rules">
+	<h3>Rules</h3>
+	1. Only <b>single words</b> in English.<br/>
+	2. Only <b>nouns</b> (e.g., things, objects, concepts).<br/>
+	3. <b>No proper nouns</b> (e.g., no specific people or places).<br/>
+	4. <b>No specialised vocabulary</b> (e.g., no technical terms).<br/>
+	5. Think of the words <b>on your own</b> (e.g., do not just look at objects in your surroundings).<br/>
+      </div>
+  );
+ }
 
   render() {
     const { stage } = this.props;
@@ -29,8 +43,12 @@ export default class PlayerProfile extends React.Component {
     return (
       <aside className="player-profile">
         {this.renderProfile()}
-        {this.renderScore()}
+        {/* do not render score and add rules instead
+        // {this.renderScore()} */}
         <Timer stage={stage} />
+        {this.renderRules()}
+
+
       </aside>
     );
   }
