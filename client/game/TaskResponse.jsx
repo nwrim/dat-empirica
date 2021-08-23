@@ -5,6 +5,7 @@ export default class TaskResponse extends React.Component {
     const value = event.currentTarget.value;
     const { player } = this.props;
     // only allow value to be set if it is character
+    // this lets participants input random character as the first letter - not sure why
     // code modified from https://stackoverflow.com/questions/52846347/reactjs-cannot-restrict-user-input-to-letters-only
     if (value === "" || /^[A-Za-z]+$/.test(value))
 	// this should be changed to appending to the list (figure it out after making the redering function)
@@ -53,7 +54,7 @@ export default class TaskResponse extends React.Component {
         <form className="task-response-form" onSubmit={this.handleSubmit}>
           {this.renderInput()}
 
-          <button type="submit">Submit</button>
+          <button type="submit">Add Word</button>
         </form>
       </div>
     );
