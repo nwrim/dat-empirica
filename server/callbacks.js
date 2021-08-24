@@ -12,7 +12,7 @@ Empirica.onRoundStart((game, round) => {});
 // onStageStart is triggered before each stage starts.
 // It receives the same options as onRoundStart, and the stage that is starting.
 Empirica.onStageStart((game, round, stage) => {
-  stage.set('wordList', ['abdullah', 'james', 'nakwon']);
+  stage.set('wordList', []);
 });
 
 // onStageEnd is triggered after each stage.
@@ -55,22 +55,22 @@ Empirica.onGameEnd(game => {});
 
 // // onSet is called when the experiment code call the .set() method
 // // on games, rounds, stages, players, playerRounds or playerStages.
-Empirica.onSet((
-  game,
-  round,
-  stage,
-  player, // Player who made the change
-  target, // Object on which the change was made (eg. player.set() => player)
-  targetType, // Type of object on which the change was made (eg. player.set() => "player")
-  key, // Key of changed value (e.g. player.set("score", 1) => "score")
-  value, // New value
-  prevValue // Previous value
-) => {
+// Empirica.onSet((
+//   game,
+//   round,
+//   stage,
+//   player, // Player who made the change
+//   target, // Object on which the change was made (eg. player.set() => player)
+//   targetType, // Type of object on which the change was made (eg. player.set() => "player")
+//   key, // Key of changed value (e.g. player.set("score", 1) => "score")
+//   value, // New value
+//   prevValue // Previous value
+// ) => {
 //   // // Example filtering
 //   // if (key !== "value") {
 //   //   return;
 //   // }
-});
+// });
 
 // // onAppend is called when the experiment code call the `.append()` method
 // // on games, rounds, stages, players, playerRounds or playerStages.
@@ -92,23 +92,23 @@ Empirica.onSet((
 // // onChange is called when the experiment code call the `.set()` or the
 // // `.append()` method on games, rounds, stages, players, playerRounds or
 // // playerStages.
-//Empirica.onChange((
-//   game,
-//   round,
-//   stage,
-//   player, // Player who made the change
-//   target, // Object on which the change was made (eg. player.set() => player)
-//   targetType, // Type of object on which the change was made (eg. player.set() => "player")
-//   key, // Key of changed value (e.g. player.set("score", 1) => "score")
-//   value, // New value
-//   prevValue, // Previous value
-//   isAppend // True if the change was an append, false if it was a set
-// ) => {
+Empirica.onChange((
+  game,
+  round,
+  stage,
+  player, // Player who made the change
+  target, // Object on which the change was made (eg. player.set() => player)
+  targetType, // Type of object on which the change was made (eg. player.set() => "player")
+  key, // Key of changed value (e.g. player.set("score", 1) => "score")
+  value, // New value
+  prevValue, // Previous value
+  isAppend // True if the change was an append, false if it was a set
+) => {
 //   // `onChange` is useful to run server-side logic for any user interaction.
 //   // Note the extra isAppend boolean that will allow to differenciate sets and
 //   // appends.
 //    Game.set("lastChangeAt", new Date().toString())
-// });
+});
 
 // // onSubmit is called when the player submits a stage.
 // Empirica.onSubmit((

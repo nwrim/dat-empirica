@@ -26,7 +26,7 @@ export default class TaskStimulus extends React.Component {
   const { round, stage, player } = this.props;
     return (
       <div className="list">
-      <h2>Current Words:</h2>
+      <h2>Current Word List:</h2>
       {this.showList(stage.get('wordList'))}
       </div>
     );
