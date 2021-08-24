@@ -11,7 +11,9 @@ Empirica.onRoundStart((game, round) => {});
 
 // onStageStart is triggered before each stage starts.
 // It receives the same options as onRoundStart, and the stage that is starting.
-Empirica.onStageStart((game, round, stage) => {});
+Empirica.onStageStart((game, round, stage) => {
+  stage.set('wordList', ['abdullah', 'james', 'nakwon']);
+});
 
 // onStageEnd is triggered after each stage.
 // It receives the same options as onRoundEnd, and the stage that just ended.
@@ -53,22 +55,22 @@ Empirica.onGameEnd(game => {});
 
 // // onSet is called when the experiment code call the .set() method
 // // on games, rounds, stages, players, playerRounds or playerStages.
-// Empirica.onSet((
-//   game,
-//   round,
-//   stage,
-//   player, // Player who made the change
-//   target, // Object on which the change was made (eg. player.set() => player)
-//   targetType, // Type of object on which the change was made (eg. player.set() => "player")
-//   key, // Key of changed value (e.g. player.set("score", 1) => "score")
-//   value, // New value
-//   prevValue // Previous value
-// ) => {
+Empirica.onSet((
+  game,
+  round,
+  stage,
+  player, // Player who made the change
+  target, // Object on which the change was made (eg. player.set() => player)
+  targetType, // Type of object on which the change was made (eg. player.set() => "player")
+  key, // Key of changed value (e.g. player.set("score", 1) => "score")
+  value, // New value
+  prevValue // Previous value
+) => {
 //   // // Example filtering
 //   // if (key !== "value") {
 //   //   return;
 //   // }
-// });
+});
 
 // // onAppend is called when the experiment code call the `.append()` method
 // // on games, rounds, stages, players, playerRounds or playerStages.
@@ -90,7 +92,7 @@ Empirica.onGameEnd(game => {});
 // // onChange is called when the experiment code call the `.set()` or the
 // // `.append()` method on games, rounds, stages, players, playerRounds or
 // // playerStages.
-// Empirica.onChange((
+//Empirica.onChange((
 //   game,
 //   round,
 //   stage,
