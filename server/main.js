@@ -15,11 +15,11 @@ Empirica.gameInit(game => {
     player.set("score", 0);
   });
 
-  _.times(10, i => {
+  _.times(game.treatment.roundNum, i => {
     const round = game.addRound();
     round.addStage({
-      name: "response",
-      displayName: "Response",
+      name: "Word Naming Tasks",
+      displayName: "Word Naming Tasks",
       durationInSeconds: game.treatment.stageDuration
     });
   });
