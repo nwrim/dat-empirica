@@ -9,7 +9,6 @@ export default class SocialExposure extends React.Component {
     return (
       <div className="alter" key={otherPlayer._id}>
         <img src={otherPlayer.get("avatar")} className="profile-avatar" />
-        Guess: {value}
       </div>
     );
   }
@@ -22,6 +21,11 @@ export default class SocialExposure extends React.Component {
     const messages = stage.get("chat").map(({ text, playerId }) => ({
       text,
       subject: game.players.find(p => p._id === playerId)
+    }));
+     
+    const events = stage.get("log").map(({ subjectId, ...rest }) => ({
+      subject: subjectId && game.players.find(p => p._id === subjectId),
+      ...rest
     }));
  
     if (otherPlayers.length === 0) {
@@ -40,8 +44,7 @@ export default class SocialExposure extends React.Component {
         </p>
         {otherPlayers.map(p => this.renderSocialInteraction(p))}
         <div>
-          <p className="chat-title"><strong>Chat</strong></p>
-          <Chat player={player} scope={round} />
+          <EventLog events={events} stage={stage} player={player} />
           <ChatLog messages={messages} stage={stage} player={player} />
         </div>
       </div>

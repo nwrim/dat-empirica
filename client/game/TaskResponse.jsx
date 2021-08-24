@@ -1,4 +1,6 @@
 import React from "react";
+import { TimeSync } from "meteor/mizzao:timesync";
+import moment from "moment";
 
 export default class TaskResponse extends React.Component {
   state = { inputValue: ''};
@@ -15,10 +17,15 @@ export default class TaskResponse extends React.Component {
   };
 
   handleSubmit = event => {
-    const { stage } = this.props;
+    const { stage, player } = this.props;
     event.preventDefault();
-    // this.props.player.stage.submit();
     stage.set('wordList', stage.get('wordList').concat(this.state.inputValue));
+    stage.append('log', {
+      verb: 'addedWord',
+      subjectId: player._id,
+      object: this.state.inputValue,
+      at: moment(TimeSync.serverTime(null, 1000)),
+    });
     this.setState({inputValue: ''});
   };
 

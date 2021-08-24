@@ -53,28 +53,19 @@ class Event extends React.Component {
       case "roundStarted":
         content = <div className="content">Game started</div>;
         break;
-      case "movedStudent":
+      case "addedWord":
         content = (
           <div className="content">
-            <Author player={subject} self={self} /> moved{" "}
-            <div className="object">{object}</div> to{" "}
-            <div className="target">Room {target}</div>.
-          </div>
-        );
-        break;
-      case "draggingStudent":
-        content = (
-          <div className="content">
-            <Author player={subject} self={self} /> started moving{" "}
+            <Author player={subject} self={self} /> added {" "}
             <div className="object">{object}</div>.
           </div>
         );
         break;
-      case "releasedStudent":
+      case "removedWord":
         content = (
           <div className="content">
-            <Author player={subject} self={self} /> released{" "}
-            <div className="object">{object}</div> without moving it.
+            <Author player={subject} self={self} /> removed{" "}
+            <div className="object">{object}</div>.
           </div>
         );
         break;
