@@ -12,6 +12,16 @@ Empirica.onRoundStart((game, round) => {});
 // onStageStart is triggered before each stage starts.
 // It receives the same options as onRoundStart, and the stage that is starting.
 Empirica.onStageStart((game, round, stage) => {
+  // first set every player's satisfied status as unsatisfied
+  const players = game.players;
+  players.forEach((player) => {
+    player.set("satisfied", false);
+  });
+  
+  stage.set("log", [])
+  // set up an empty array to store intermediate solutions
+  stage.set("intermediateWordLists", []);
+  // set up an empty array to store the word list
   stage.set('wordList', []);
 });
 
@@ -108,6 +118,23 @@ Empirica.onChange((
 //   // Note the extra isAppend boolean that will allow to differenciate sets and
 //   // appends.
 //    Game.set("lastChangeAt", new Date().toString())
+    const players = game.players;
+    //someone changed their satisfaction status
+
+    console.log("key", key);
+    if (key === "satisfied") {
+      //check if everyone is satisfied and if so, submit their answer
+      let allSatisfied = true;
+     players.forEach((player) => {
+        allSatisfied = player.get("satisfied") && allSatisfied;
+      });
+      if (allSatisfied) {
+        players.forEach((player) => {
+          player.stage.submit();
+        });
+      }
+      return;
+    }
 });
 
 // // onSubmit is called when the player submits a stage.

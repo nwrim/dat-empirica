@@ -20,7 +20,7 @@ Empirica.gameInit(game => {
     round.addStage({
       name: "response",
       displayName: "Response",
-      durationInSeconds: 120
+      durationInSeconds: game.treatment.stageDuration
     });
   });
 });
