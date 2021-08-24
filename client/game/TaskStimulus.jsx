@@ -1,19 +1,26 @@
 import React from "react";
+import { TimeSync } from "meteor/mizzao:timesync";
+import moment from "moment";
 
-const l = ['a', 'b', 'c'];
-const ll = l.filter(l => l !== 'a');
+export default class TaskStimulus extends React.Component {   
+
+  removeWord = item => {
+    const {stage, player} = this.props;
     
-export default class TaskStimulus extends React.Component { 
-  // state = {list: ['a', 'b', 'c'], count: 0};
-  // or use round instead? add round.set('list', []); in callback?
-  //  onClick={() => stage.set('wordList', round.wordList.filter(l => l !== item))}
-  
+    stage.set('wordList', stage.get('wordList').filter(l => l !== item));
+}
+
+
   showList = list => {
   const { round, stage, player } = this.props;
+        //onClick={() => this.removeWord(item)}>
+        //onClick={() => stage.set('wordList', stage.get('wordList').filter(l => l !== item))}>
     return (
     <ol>
       {list.map(function(item) {
-        return <li key={item}>{item} <button type="button" onClick={() => stage.set('wordList', stage.get('wordList').filter(l => l !== item))}>
+        return <li key={item}> {item} <button type="button" 
+        onClick={() => this.removeWord(item)}>
+
         Remove
         </button> </li>;
       })}
