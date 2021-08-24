@@ -18,7 +18,7 @@ export default class TaskResponse extends React.Component {
     const { stage } = this.props;
     event.preventDefault();
     // this.props.player.stage.submit();
-    stage.append('wordList', this.state.inputValue);
+    stage.set('wordList', stage.get('wordList').concat(this.state.inputValue));
     this.setState({inputValue: ''});
   };
 
