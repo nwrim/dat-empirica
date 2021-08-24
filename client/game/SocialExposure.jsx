@@ -1,42 +1,52 @@
 import React from "react";
-import Slider from "meteor/empirica:slider";
+import EventLog from "./EventLog";
+import ChatLog from "./ChatLog";
 
 export default class SocialExposure extends React.Component {
   renderSocialInteraction(otherPlayer) {
-    const value = otherPlayer.round.get("value");
+    // Get the value or return NA if no value was entered
+    const value = otherPlayer.round.get("value") ?? "NA";
     return (
       <div className="alter" key={otherPlayer._id}>
         <img src={otherPlayer.get("avatar")} className="profile-avatar" />
-        <div className="range">
-          <Slider
-            min={0}
-            max={1}
-            stepSize={0.01}
-            value={value}
-            disabled
-            hideHandleOnEmpty
-          />
-        </div>
+        Guess: {value}
       </div>
     );
   }
 
   render() {
-    const { game, player } = this.props;
+    const { game, player, round, stage } = this.props;
 
     const otherPlayers = _.reject(game.players, p => p._id === player._id);
-
+    
+    const messages = stage.get("chat").map(({ text, playerId }) => ({
+      text,
+      subject: game.players.find(p => p._id === playerId)
+    }));
+ 
     if (otherPlayers.length === 0) {
       return null;
     }
 
     return (
       <div className="social-exposure">
-        <p>
-          <strong>There are {otherPlayers.length} other players:</strong>
+        <h3 className="title">Social Information</h3>
+        <p className="title">
+          {
+            otherPlayers.length > 1
+              ? <strong>There are {otherPlayers.length} other players:</strong>
+              : <strong>There is one other player:</strong>
+          }
         </p>
         {otherPlayers.map(p => this.renderSocialInteraction(p))}
+        <div>
+          <p className="chat-title"><strong>Chat</strong></p>
+          <Chat player={player} scope={round} />
+          <ChatLog messages={messages} stage={stage} player={player} />
+        </div>
       </div>
     );
   }
 }
+
+
