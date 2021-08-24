@@ -12,6 +12,33 @@ export default class SocialExposure extends React.Component {
       </div>
     );
   }
+  
+  renderPlayer(player, self = false) {
+    return (
+      <div className="player" key={player._id}>
+        <span className="image">
+          <span
+            className={`satisfied bp3-tag bp3-round ${
+              player.get("satisfied") ? "bp3-intent-success" : "bp3-intent-danger"
+            }`}
+          >
+            <span
+              className={`bp3-icon-standard ${
+                player.get("satisfied") ? "bp3-icon-tick" : "bp3-icon-cross"
+              }`}
+            />
+          </span>
+
+          <img src={player.get("avatar")} />
+        </span>
+        {/* <span className="name" style={{ color: player.get("nameColor") }}> */}
+        <span className="name" style={{ color: player.get("nameColor") }}>
+          {player.get("name")}
+          {self ? " (You)" : ""}
+        </span>
+      </div>
+    );
+  }
 
   render() {
     const { game, player, round, stage } = this.props;
@@ -42,7 +69,8 @@ export default class SocialExposure extends React.Component {
               : <strong>There is one other player:</strong>
           }
         </p>
-        {otherPlayers.map(p => this.renderSocialInteraction(p))}
+        {this.renderPlayer(player, true)}
+        {otherPlayers.map(p => this.renderPlayer(p))}
         <div>
           <EventLog events={events} stage={stage} player={player} />
           <ChatLog messages={messages} stage={stage} player={player} />
