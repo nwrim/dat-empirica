@@ -3,7 +3,55 @@ import Empirica from "meteor/empirica:core";
 // onGameStart is triggered opnce per game before the game starts, and before
 // the first onRoundStart. It receives the game and list of all the players in
 // the game.
-Empirica.onGameStart(game => {});
+Empirica.onGameStart((game) => {
+  const players = game.players;
+  console.debug("game ", game._id, " started");
+
+  const names = [
+    "Blue",
+    "Green",
+    "Pink",
+    "Yellow",
+    "Purple",
+    "Red",
+    "Turqoise",
+    "Gold",
+    "Grey",
+    "Magenta",
+  ]; // for the players names to match avatar color
+  const avatarNames = [
+    "Colton",
+    "Aaron",
+    "Alex",
+    "Tristan",
+    "Daniel",
+    "Jill",
+    "Jimmy",
+    "Adam",
+    "Flynn",
+    "Annalise",
+  ]; // to do more go to https://jdenticon.com/#icon-D3
+  const nameColor = [
+    "#3D50B7",
+    "#70A945",
+    "#DE8AAB",
+    "#A59144",
+    "#DER5F4",
+    "#EB8TWV",
+    "#N0WFA4",
+    "#TP3BWU",
+    "#QW7MI9",
+    "#EB8TWj",
+  ]; // similar to the color of the avatar
+
+  players.forEach((player, i) => {
+    player.set("name", names[i]);
+    player.set("avatar", `/avatars/jdenticon/${avatarNames[i]}`);
+    player.set("nameColor", nameColor[i]);
+    player.set("cumulativeScore", 0);
+    player.set("bonus", 0);
+  });
+});
 
 // onRoundStart is triggered before each round starts, and before onStageStart.
 // It receives the same options as onGameStart, and the round that is starting.
@@ -18,7 +66,13 @@ Empirica.onStageStart((game, round, stage) => {
     player.set("satisfied", false);
   });
   
-  stage.set("log", [])
+  stage.set("chat", []);
+  stage.set("log", [
+    {
+      verb: "roundStarted",
+      at: new Date(),
+    },
+  ]);
   // set up an empty array to store intermediate solutions
   stage.set("intermediateWordLists", []);
   // set up an empty array to store the word list
@@ -65,7 +119,7 @@ Empirica.onGameEnd(game => {});
 
 // // onSet is called when the experiment code call the .set() method
 // // on games, rounds, stages, players, playerRounds or playerStages.
-// Empirica.onSet((
+// Empirica.onChange((
 //   game,
 //   round,
 //   stage,
@@ -102,7 +156,7 @@ Empirica.onGameEnd(game => {});
 // // onChange is called when the experiment code call the `.set()` or the
 // // `.append()` method on games, rounds, stages, players, playerRounds or
 // // playerStages.
-Empirica.onChange((
+Empirica.onSet((
   game,
   round,
   stage,
