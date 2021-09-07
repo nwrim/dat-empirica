@@ -48,8 +48,6 @@ Empirica.onGameStart((game) => {
     player.set("name", names[i]);
     player.set("avatar", `/avatars/jdenticon/${avatarNames[i]}`);
     player.set("nameColor", nameColor[i]);
-    player.set("cumulativeScore", 0);
-    player.set("bonus", 0);
   });
 });
 
@@ -74,9 +72,9 @@ Empirica.onStageStart((game, round, stage) => {
     },
   ]);
   // set up an empty array to store intermediate solutions
-  stage.set("intermediateWordLists", []);
+  stage.set("sandboxWordList", []);
   // set up an empty array to store the word list
-  stage.set('wordList', []);
+  stage.set('finalWordList', []);
 });
 
 // onStageEnd is triggered after each stage.

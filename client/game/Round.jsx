@@ -2,7 +2,7 @@ import React from "react";
 
 import PlayerProfile from "./PlayerProfile.jsx";
 import SocialExposure from "./SocialExposure.jsx";
-import Task from "./Task.jsx";
+import {TaskSandbox, TaskFinal} from "./Task.jsx";
 
 export default class Round extends React.Component {
   render() {
@@ -12,7 +12,8 @@ export default class Round extends React.Component {
       <div className="round">
         <div className="content">
           <PlayerProfile player={player} stage={stage} game={game} />
-          <Task game={game} round={round} stage={stage} player={player} />
+          <TaskSandbox game={game} round={round} stage={stage} player={player} />
+          <TaskFinal game={game} round={round} stage={stage} player={player} />
           <SocialExposure stage={stage} player={player} game={game} />
         </div>
       </div>

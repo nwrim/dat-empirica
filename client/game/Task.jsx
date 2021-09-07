@@ -1,7 +1,7 @@
 import React from "react";
 
 import TaskResponse from "./TaskResponse";
-import TaskStimulus from "./TaskStimulus";
+import { SandboxStimulus, FinalWordStimulus } from "./TaskStimulus";
 
 import { StageTimeWrapper } from "meteor/empirica:core";
 import { TimeSync } from "meteor/mizzao:timesync";
@@ -43,7 +43,25 @@ const TimedButton_2 = StageTimeWrapper((props) => {
   );
 });
 
-export default class Task extends React.Component {
+class TaskSandbox extends React.Component {
+    constructor(props) {
+    super(props);
+    this.state = { activeButton: false };
+  }
+
+  render() {
+    const { game, stage, player } = this.props;
+      
+    return (
+      <div className="taskSandbox">
+        <SandboxStimulus {...this.props} />
+        <TaskResponse {...this.props} />
+      </div>
+    );
+  }
+}
+
+class TaskFinal extends React.Component {
     constructor(props) {
     super(props);
     this.state = { activeButton: false };
@@ -90,9 +108,8 @@ export default class Task extends React.Component {
     const { game, stage, player } = this.props;
       
     return (
-      <div className="task">
-        <TaskStimulus {...this.props} />
-        <TaskResponse {...this.props} />
+      <div className="taskFinal">
+        <FinalWordStimulus {...this.props} />
 	<br/>
         <TimedButton_1 
           stage={stage} 
@@ -111,3 +128,7 @@ export default class Task extends React.Component {
     );
   }
 }
+
+export { TaskSandbox, TaskFinal };
+
+

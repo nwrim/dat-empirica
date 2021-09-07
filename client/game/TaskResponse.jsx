@@ -24,7 +24,7 @@ export default class TaskResponse extends React.Component {
       word: this.state.inputValue,
     };
     event.preventDefault();
-    stage.set('wordList', stage.get('wordList').concat(newVal));
+    stage.set('sandboxWordList', stage.get('sandboxWordList').concat(newVal));
     stage.append('log', {
       verb: 'addedWord',
       subjectId: player._id,
