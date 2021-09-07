@@ -32,16 +32,16 @@ Empirica.onGameStart((game) => {
     "Annalise",
   ]; // to do more go to https://jdenticon.com/#icon-D3
   const nameColor = [
-    "#3D50B7",
-    "#70A945",
-    "#DE8AAB",
-    "#A59144",
-    "#DER5F4",
-    "#EB8TWV",
-    "#N0WFA4",
-    "#TP3BWU",
-    "#QW7MI9",
-    "#EB8TWj",
+    "#3D50B7", //3D50B7
+    "#6A9932", //70A945
+    "#D1759B", //DE8AAB
+    "#997E32", //A59144
+    "#7538A8", //DER5F4
+    "#A85238", //EB8TWV
+    "#59C7A4", //N0WFA4
+    "#CCCA66", //TP3BWU
+    "#4C4C4C", //QW7MI9
+    "#D175B9", //EB8TWj
   ]; // similar to the color of the avatar
 
   players.forEach((player, i) => {

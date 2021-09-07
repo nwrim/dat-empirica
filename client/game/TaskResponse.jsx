@@ -18,8 +18,13 @@ export default class TaskResponse extends React.Component {
 
   handleSubmit = event => {
     const { stage, player } = this.props;
+    const newVal = {
+      name: player.get("name"),
+      color: player.get("nameColor"),
+      word: this.state.inputValue,
+    };
     event.preventDefault();
-    stage.set('wordList', stage.get('wordList').concat(this.state.inputValue));
+    stage.set('wordList', stage.get('wordList').concat(newVal));
     stage.append('log', {
       verb: 'addedWord',
       subjectId: player._id,
@@ -29,16 +34,16 @@ export default class TaskResponse extends React.Component {
     this.setState({inputValue: ''});
   };
 
-  renderSubmitted() {
-    return (
-      <div className="task-response">
-        <div className="response-submitted">
-          <h5>Word Limt Reached!</h5>
-          Please remove a word to add a new one
-        </div>
-      </div>
-    );
-  }
+//  renderSubmitted() {
+//    return (
+//      <div className="task-response">
+//        <div className="response-submitted">
+//          <h5>Word Limt Reached!</h5>
+//          Please remove a word to add a new one
+//        </div>
+//      </div>
+//    );
+//  }
 
   renderInput() {
     const { player } = this.props;
@@ -57,9 +62,9 @@ export default class TaskResponse extends React.Component {
     const { round, stage, player } = this.props;
 
     // If the player already submitted, don't show the slider or submit button
-    if (stage.get('wordList').length >= 10) {
-      return this.renderSubmitted();
-    }
+//    if (stage.get('wordList').length >= 10) {
+//      return this.renderSubmitted();
+//    }
 
     return (
       <div className="task-response">
