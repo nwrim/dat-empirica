@@ -28,7 +28,7 @@ class SandboxStimulus extends React.Component {
     }
     return (
       <ol>
-        {flist.map((item, i) => {
+        {list.map((item, i) => {
             return (
               <li key={i}>
                 {item.word} [<font color={item.color}>{item.name === player.get("name") ? "You" : item.name}</font>]{" "}
@@ -103,7 +103,7 @@ class FinalWordStimulus extends React.Component {
     }
     return (
       <ol>
-        {flist.map((item, i) => {
+        {list.map((item, i) => {
             return (
               <li key={i}>
                 {item.word} [<font color={item.color}>{item.name === player.get("name") ? "You" : item.name}</font>]{" "}
@@ -137,7 +137,7 @@ class FinalWordStimulus extends React.Component {
     
     return (
     <div className="finalWordlist">
-      <h2>Current Word List:</h2>
+      <h2>Current Final List:</h2>
       <h3>These words will be graded.</h3>
       { len >= 10 && <h3>The list is full! Remove a word to add something else.</h3>}
       { !(len >= 10) && <h3>You can add {10 - len} more word(s)</h3>}

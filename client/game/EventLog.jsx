@@ -57,7 +57,7 @@ class Event extends React.Component {
         content = (
           <div className="content">
             <Author player={subject} self={self} /> added {" "}
-            <div className="object">{object}</div>.
+            <div className="object">{object}</div> to the <b>Sandbox</b>.
           </div>
         );
         break;
@@ -65,7 +65,23 @@ class Event extends React.Component {
         content = (
           <div className="content">
             <Author player={subject} self={self} /> removed{" "}
-            <div className="object">{object}</div>.
+            <div className="object">{object.word}</div> from the <b>Sandbox</b>.
+          </div>
+        );
+        break;
+      case "movedWordToFinal":
+        content = (
+          <div className="content">
+            <Author player={subject} self={self} /> moved{" "}
+            <div className="object">{object.word}</div> to the <b>Final List</b>.
+          </div>
+        );
+        break;
+      case "movedWordToSandbox":
+        content = (
+          <div className="content">
+            <Author player={subject} self={self} /> moved{" "}
+            <div className="object">{object.word}</div> to the <b>Sandbox</b>.
           </div>
         );
         break;
