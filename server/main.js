@@ -18,8 +18,8 @@ Empirica.gameInit(game => {
   _.times(game.treatment.roundNum, i => {
     const round = game.addRound();
     round.addStage({
-      name: "Word Naming Tasks",
-      displayName: "Word Naming Tasks",
+      name: "Word Naming Task",
+      displayName: "Word Naming Task",
       durationInSeconds: game.treatment.stageDuration
     });
   });

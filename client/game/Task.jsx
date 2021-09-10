@@ -110,20 +110,21 @@ class TaskFinal extends React.Component {
     return (
       <div className="taskFinal">
         <FinalWordStimulus {...this.props} />
-	<br/>
-        <TimedButton_1 
-          stage={stage} 
-          player={player}
-          activateAt={game.treatment.stageDuration - 5}
-          onClick={this.handleSatisfaction.bind(this, false)}
-        />
- 
-        <TimedButton_2 
-          stage={stage} 
-          player={player}
-          activateAt={game.treatment.stageDuration - 5}
-          onClick={this.handleSatisfaction.bind(this, true)}
-        />
+        <div className="satisfiedButtons">
+			    <TimedButton_1 
+			      stage={stage} 
+			      player={player}
+			      activateAt={game.treatment.stageDuration - 5}
+			      onClick={this.handleSatisfaction.bind(this, false)}
+			    />
+	 
+			    <TimedButton_2 
+			      stage={stage} 
+			      player={player}
+			      activateAt={game.treatment.stageDuration - 5}
+			      onClick={this.handleSatisfaction.bind(this, true)}
+			    />
+			  </div>
       </div>
     );
   }

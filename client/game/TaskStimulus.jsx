@@ -1,6 +1,7 @@
 import React from "react";
 import { TimeSync } from "meteor/mizzao:timesync";
 import moment from "moment";
+import { Button, Icon } from "@blueprintjs/core";
 
 class SandboxStimulus extends React.Component {
   showList = list => {
@@ -16,8 +17,8 @@ class SandboxStimulus extends React.Component {
             return (
               <li key={i}>
                 {item.word}{" "}
-                <button onClick={() => { this.removeWord(item) }}>Remove</button>{" "}
-                <button onClick={() => { this.moveWordToFinal(item) }} disabled={disabled}>move to final</button>
+                <Button icon="trash" onClick={() => { this.removeWord(item) }}/>{" "}
+                <Button icon="arrow-right" onClick={() => { this.moveWordToFinal(item) }} disabled={disabled}/>
               </li>
               )
             }
@@ -32,9 +33,8 @@ class SandboxStimulus extends React.Component {
             return (
               <li key={i}>
                 {item.word} [<font color={item.color}>{item.name === player.get("name") ? "You" : item.name}</font>]{" "}
-                <button onClick={() => {this.removeWord(item)}}>Remove</button>{" "}
-                <button onClick={() => { this.moveWordToFinal(item) }}>move to final</button>
-              </li>
+                <Button icon="trash" onClick={() => { this.removeWord(item) }}/>{" "}
+                <Button icon="arrow-right" onClick={() => { this.moveWordToFinal(item) }} disabled={disabled}/>              </li>
               )
             }
           )
@@ -69,12 +69,16 @@ class SandboxStimulus extends React.Component {
   render() {
     const { stage } = this.props;
     return (
-      <div className="sandboxWordList">
-        <h2>Sandbox</h2>
-        <h3>These words will NOT be graded</h3>      
-        {this.showList(stage.get('sandboxWordList'))}
-      </div>
-
+		  <div className="sandboxWord">
+		    <h2 align="center">Sandbox</h2>
+		    <h3 align="center">These words will NOT be graded</h3>
+		    <h3 align="center"><img src="/experiment/images/trash.svg" height="18px"/> : remove word,{" "}
+		    <img src="/experiment/images/arrow-left.svg" height="18px"/>
+		    <img src="/experiment/images/arrow-right.svg" height="18px"/> : move word</h3>
+		    <div className="sandboxWordList bp3-card">
+		      {this.showList(stage.get('sandboxWordList'))}
+		    </div>
+		  </div>
     )
   }
 }
@@ -91,8 +95,7 @@ class FinalWordStimulus extends React.Component {
             return (
               <li key={i}>
                 {item.word}{" "}
-                <button onClick={() => { this.removeWord(item) }}>Remove</button>{" "}
-                <button onClick={() => { this.moveWordToSandbox(item) }}>move to sandbox</button>
+                <Button icon="arrow-left" onClick={() => { this.moveWordToSandbox(item) }}/>
               </li>
               )
             }
@@ -107,8 +110,7 @@ class FinalWordStimulus extends React.Component {
             return (
               <li key={i}>
                 {item.word} [<font color={item.color}>{item.name === player.get("name") ? "You" : item.name}</font>]{" "}
-                <button onClick={() => {this.removeWord(item)}}>Remove</button>{" "}
-                <button onClick={() => { this.moveWordToSandbox(item) }}>move to sandbox</button>
+                <Button icon="arrow-left" onClick={() => { this.moveWordToSandbox(item) }}/>
               </li>
               )
             }
@@ -136,13 +138,15 @@ class FinalWordStimulus extends React.Component {
     const len = finalWordList.length;
     
     return (
-    <div className="finalWordlist">
-      <h2>Current Final List:</h2>
-      <h3>These words will be graded.</h3>
-      { len >= 10 && <h3>The list is full! Remove a word to add something else.</h3>}
-      { !(len >= 10) && <h3>You can add {10 - len} more word(s)</h3>}
-      {this.showList(finalWordList)}
-    </div>
+    <div className="finalWord">
+		    <h2  align="center">Final List:</h2>
+		    <h3 align="center">These words will be graded.</h3>
+		    { len >= 10 && <h3 align="center">The list is full! Remove a word to add something else.</h3>}
+		    { !(len >= 10) && <h3 align="center">You can add {10 - len} more word(s)</h3>}
+		  <div className="finalWordList bp3-card">
+		    {this.showList(finalWordList)}
+		  </div>
+		</div>
     )
   }
 }

@@ -33,8 +33,6 @@ export default class PlayerProfile extends React.Component {
     return (
       <aside className="player-profile">
         {this.renderProfile()}
-        {/* do not render score and add rules instead
-        // {this.renderScore()} */}
         <Timer stage={stage} />
         {this.renderRules()}
 

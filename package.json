@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.10.2",
+    "@blueprintjs/core": "^3.49.1",
     "@empirica/chat": "^2.2.0",
     "bad-words": "^3.0.4",
     "bcrypt": "^5.0.0",

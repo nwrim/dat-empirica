@@ -2,7 +2,7 @@ import React from "react";
 import EventLog from "./EventLog";
 import ChatLog from "./ChatLog";
 
-export default class SocialExposure extends React.Component {
+export default class SocialInteractions extends React.Component {
   renderSocialInteraction(otherPlayer) {
     // Get the value or return NA if no value was entered
     const value = otherPlayer.round.get("value") ?? "NA";
@@ -60,21 +60,15 @@ export default class SocialExposure extends React.Component {
     }
 
     return (
-      <div className="social-exposure">
-        <h3 className="title">Social Information</h3>
-        <p className="title">
-          {
-            otherPlayers.length > 1
-              ? <strong>There are {otherPlayers.length} other players:</strong>
-              : <strong>There is one other player:</strong>
-          }
-        </p>
-        {this.renderPlayer(player, true)}
-        {otherPlayers.map(p => this.renderPlayer(p))}
-        <div>
-          <EventLog events={events} stage={stage} player={player} />
-          <ChatLog messages={messages} stage={stage} player={player} />
+      <div className="social-interactions">
+        <div className="status">
+          <div className="players bp3-card">
+            {this.renderPlayer(player, true)}
+            {otherPlayers.map(p => this.renderPlayer(p))}
+          </div>
         </div>
+        <EventLog events={events} stage={stage} player={player} />
+        <ChatLog messages={messages} stage={stage} player={player} />
       </div>
     );
   }
