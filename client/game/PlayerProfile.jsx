@@ -1,8 +1,7 @@
 import React from "react";
 
-import Timer from "./Timer.jsx";
-
 export default class PlayerProfile extends React.Component {
+/*
   renderProfile() {
     const { player } = this.props;
     return (
@@ -13,7 +12,7 @@ export default class PlayerProfile extends React.Component {
       </div>
     );
   }
-
+*/
   renderRules() {  
       return (
       <div className="profile-rules">
@@ -28,16 +27,12 @@ export default class PlayerProfile extends React.Component {
  }
 
   render() {
-    const { stage } = this.props;
+    // const { stage } = this.props;
 
     return (
-      <aside className="player-profile">
-        {this.renderProfile()}
-        <Timer stage={stage} />
+      <div className="player-profile">
         {this.renderRules()}
-
-
-      </aside>
+      </div>
     );
   }
 }

@@ -16,9 +16,9 @@ class SandboxStimulus extends React.Component {
         {list.map((item, i) => {
             return (
               <li key={i}>
-                {item.word}{" "}
                 <Button icon="trash" onClick={() => { this.removeWord(item) }}/>{" "}
-                <Button icon="arrow-right" onClick={() => { this.moveWordToFinal(item) }} disabled={disabled}/>
+                <Button icon="arrow-right" onClick={() => { this.moveWordToFinal(item) }} disabled={disabled}/>{" "}
+                {item.word}
               </li>
               )
             }
@@ -32,9 +32,10 @@ class SandboxStimulus extends React.Component {
         {list.map((item, i) => {
             return (
               <li key={i}>
-                {item.word} [<font color={item.color}>{item.name === player.get("name") ? "You" : item.name}</font>]{" "}
                 <Button icon="trash" onClick={() => { this.removeWord(item) }}/>{" "}
-                <Button icon="arrow-right" onClick={() => { this.moveWordToFinal(item) }} disabled={disabled}/>              </li>
+                <Button icon="arrow-right" onClick={() => { this.moveWordToFinal(item) }} disabled={disabled}/>{" "}
+                {item.word} [<font color={item.color}>{item.name === player.get("name") ? "You" : item.name}</font>]                
+              </li>
               )
             }
           )
@@ -94,8 +95,8 @@ class FinalWordStimulus extends React.Component {
         {list.map((item, i) => {
             return (
               <li key={i}>
-                {item.word}{" "}
-                <Button icon="arrow-left" onClick={() => { this.moveWordToSandbox(item) }}/>
+                <Button icon="arrow-left" onClick={() => { this.moveWordToSandbox(item) }}/>{" "}
+                {item.word}
               </li>
               )
             }
@@ -109,8 +110,8 @@ class FinalWordStimulus extends React.Component {
         {list.map((item, i) => {
             return (
               <li key={i}>
-                {item.word} [<font color={item.color}>{item.name === player.get("name") ? "You" : item.name}</font>]{" "}
-                <Button icon="arrow-left" onClick={() => { this.moveWordToSandbox(item) }}/>
+                <Button icon="arrow-left" onClick={() => { this.moveWordToSandbox(item) }}/>{" "}
+                {item.word} [<font color={item.color}>{item.name === player.get("name") ? "You" : item.name}</font>]
               </li>
               )
             }
@@ -139,9 +140,9 @@ class FinalWordStimulus extends React.Component {
     
     return (
     <div className="finalWord">
-		    <h2  align="center">Final List:</h2>
+		    <h2  align="center">Final List</h2>
 		    <h3 align="center">These words will be graded.</h3>
-		    { len >= 10 && <h3 align="center">The list is full! Remove a word to add something else.</h3>}
+		    { len >= 10 && <h3 align="center">Move a word to add something else.</h3>}
 		    { !(len >= 10) && <h3 align="center">You can add {10 - len} more word(s)</h3>}
 		  <div className="finalWordList bp3-card">
 		    {this.showList(finalWordList)}

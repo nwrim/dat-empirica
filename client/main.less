@@ -37,44 +37,21 @@
     min-height: 100%;
     align-items: center;
     padding: 3rem 4rem;
-    
+
+/*    
     .profile-avatar {
       width: 8rem;
       height: 8rem;
       margin: 3rem 0;
-    }
-
+      }
     .profile-score {
-      text-align: center;
+     text-align: center;
       span {
         font-size: 3rem;
         font-weight: bold;
       }
     }
-    
-    .timer {
-      margin-top: 2rem;
-      text-align: center;
-
-      .seconds {
-        font-size: 3rem;
-        // Helvetica has tabular numbers (fixed width), which looks better
-        // for a timer, doesn't jump all over the place.
-        font-family: Helvetica, Arial, sans-serif;
-        color: green;
-      }
-      &.lessThan10 {
-        .seconds {
-          color: orange;
-        }
-      }
-      &.lessThan5 {
-        .seconds {
-          color: red;
-        }
-      }
-    }
-    
+*/
     .profile-rules {
       text-align: left;
       span {
@@ -87,7 +64,7 @@
   }
 
   .taskSandbox {
-    width: 45rem;
+    width: 38rem;
     margin-left: 2rem;
     flex-grow: 0;
     flex-shrink: 0;
@@ -134,7 +111,7 @@
   }
   
   .taskFinal {
-    width: 45rem;
+    width: 38rem;
     margin-left: 2rem;
     flex-grow: 0;
     flex-shrink: 0;
@@ -237,7 +214,27 @@
       text-align: center;
     }
   }
-
+ .timer {
+    margin-top: 2rem;
+    text-align: center;
+    .seconds {
+      font-size: 3rem;
+      // Helvetica has tabular numbers (fixed width), which looks better
+      // for a timer, doesn't jump all over the place.
+      font-family: Helvetica, Arial, sans-serif;
+      color: green;
+    }
+    &.lessThan10 {
+      .seconds {
+        color: orange;
+      }
+    }
+    &.lessThan5 {
+      .seconds {
+        color: red;
+      }
+    }
+  }
   .eventlog {
     height: calc(~"35% - 3.5rem");
     padding: 0 2rem;
