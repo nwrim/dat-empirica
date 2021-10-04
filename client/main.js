@@ -32,6 +32,8 @@ Empirica.introSteps((game, treatment) => {
   return steps;
 });
 
+Empirica.breadcrumb(() => null);
+
 // The Round component containing the game UI logic.
 // This is where you will be doing the most development.
 // See client/game/Round.jsx to learn more.

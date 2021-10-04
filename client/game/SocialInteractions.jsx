@@ -1,6 +1,5 @@
 import React from "react";
 import Timer from "./Timer.jsx";
-// import EventLog from "./EventLog";
 import ChatLog from "./ChatLog";
 
 export default class SocialInteractions extends React.Component {
@@ -69,7 +68,6 @@ export default class SocialInteractions extends React.Component {
             {otherPlayers.map(p => this.renderPlayer(p))}
           </div>
         </div>
-        {/*<EventLog events={events} stage={stage} player={player} />*/}
         <ChatLog messages={messages} stage={stage} player={player} />
       </div>
     );

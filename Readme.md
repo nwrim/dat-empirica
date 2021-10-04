@@ -1,10 +1,16 @@
-# Dat
+# DAT
 
 _This project was generated with [create-empirica-app](https://github.com/empiricaly/create-empirica-app)._
 
-*Add a description of your Empirica app*
-
 # Running this App Locally
+
+## Downloading the app
+
+[Download](https://github.com/nwrim/dat-empirica) the repository (and unzip). Alternatively, from terminal just run:
+
+```ssh
+git clone https://github.com/nwrim/dat-empirica.git
+```
 
 ## General  Setup
 If you haven't already:
@@ -39,22 +45,48 @@ Log in with the *username* and *password* provided in the command line.
 
 ## Loading the factors and treatments
 
-To use the app, you usually need to use treatments and factors. Some might be prepared in a `.yaml` file (e.g., `factors.yaml`). In the **admin panel**:
+To use the app, you need to set some treatments and factors. A simple setting for debug purposes is prepared in a `debug_config.yaml` file.
+
+In the **admin panel** in the top right corner:
+
 - click on the **Configuration** button
+
+![config-mode][config-mode-image]
+
+[config-mode-image]: ./readme_screenshots/configuration_mode.png
+
+This will allow you to configure the experiment: Factors, Lobby, and Treatments:
+
+![config-mode-inside][config-mode-inside-image]
+
+[config-mode-inside-image]: ./readme_screenshots/configuration_mode_inside.png
+
 - click on **import**
 - select the `.yaml` file you want to import the factors and treatments from
 - wait a few seconds for the factors and treatments to be imported
 
 ## Testing the app
 
+Go back to the Monitoring mode by clicking the "Monitoring" button on the admin panel (in the top right corner).
+
+![monitoring-mode][monitoring-mode-image]
+
+[monitoring-mode-image]: ./readme_screenshots/monitoring_mode.png
+
 To run a game create a new `batch` with the games of treatments you want to use and click start on the batch.
 
-Open a player tab by going to [https:/localhost:3000/](https:/localhost:3000/) or clicking on **open app**.
+![batches][batches-img]
+
+[batches-img]: ./readme_screenshots/new_batch.png
+
+Open a player tab by going to [https:/localhost:3000/](https:/localhost:3000/) or clicking on **open app**. You can put in any arbitrary ID you want to put in.
 
 The player that you open with [https:/localhost:3000/](https:/localhost:3000/) is cached on your browser. Whenever you start a game with this player, your local app will keep that information. To play again there are multiple things you can do:
 - Click on the **Reset current session** button on the header of a tab with your player to reset this player, and create a new game for this player to join.
-- Click on the **New Player** button on the header of a tab with your player to open a new tab with a different player (you will see the id of that player in the title of the tab).
 - Go to the **Players** tab in the admin panel and retire players that have finished or cancelled.
+
+For debugging multi-player settings, you will need to use treatment setting with **playerCount** factor value set more than one (e.g., the "debug\_two" setting and "debug\_ten" setting). 
+- Click on the **New Player** button on the header of a tab with your player to open a new tab with a different player (you will see the id of that player in the title of the tab). You do not have to open a new brower window.
 
 **The app will hot reload as you save changes to your code.**
 

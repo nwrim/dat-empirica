@@ -98,7 +98,6 @@ class TaskFinal extends React.Component {
       verb: "playerSatisfaction",
       subjectId: player._id,
       state: satisfied ? "satisfied" : "unsatisfied",
-      // at: new Date()
       at: moment(TimeSync.serverTime(null, 1000)),
     });
     console.log("task moment", moment(TimeSync.serverTime(null, 1000)));
@@ -111,20 +110,20 @@ class TaskFinal extends React.Component {
       <div className="taskFinal">
         <FinalWordStimulus {...this.props} />
         <div className="satisfiedButtons">
-			    <TimedButton_1 
-			      stage={stage} 
-			      player={player}
-			      activateAt={game.treatment.stageDuration - 5}
-			      onClick={this.handleSatisfaction.bind(this, false)}
-			    />
-	 
-			    <TimedButton_2 
-			      stage={stage} 
-			      player={player}
-			      activateAt={game.treatment.stageDuration - 5}
-			      onClick={this.handleSatisfaction.bind(this, true)}
-			    />
-			  </div>
+	    <TimedButton_1 
+	      stage={stage} 
+	      player={player}
+	      activateAt={game.treatment.stageDuration - 5}
+	      onClick={this.handleSatisfaction.bind(this, false)}
+	    />
+
+	    <TimedButton_2 
+	      stage={stage} 
+	      player={player}
+	      activateAt={game.treatment.stageDuration - 5}
+	      onClick={this.handleSatisfaction.bind(this, true)}
+	    />
+	</div>
       </div>
     );
   }
