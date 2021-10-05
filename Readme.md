@@ -2,6 +2,14 @@
 
 _This project was generated with [create-empirica-app](https://github.com/empiricaly/create-empirica-app)._
 
+This is an implementation of [Divergent Association Task](https://www.datcreativity.com/), modified as a group task. 
+
+Based on the idea that "People who are more creative tend to think of ideas with greater “distances” between them" (quoted from the above linked website), this task makes group of people to come up with up to 10 words that are as different from each other as possible.
+
+For easier collaboration, players first have to add words to the “Sandox”, where an unlimited amount of words can be stored. Then, players can move the word to the “Final Word List”, where up to 10 words can be stored. The words in the “Final Word List” will be the words that will be graded.
+
+Player are able to communicate with each other through the chat service, and they can press the “satisfied” button to signal that they are happy to submit the words currently in the “Final Word List” for grading. When all players press the “satisfied” button, the answer will be submitted to the experimentor to be graded.
+
 # Running this App Locally
 
 ## Downloading the app
@@ -13,6 +21,9 @@ git clone https://github.com/nwrim/dat-empirica.git
 ```
 
 ## General  Setup
+
+Empirica is build on industry-standard open-source web technologies which run best in Unix-like operating systems such as Linux and MacOS. If you use other OS, please visit [here](https://docs.empirica.ly/getting-started/setup) for additional information.
+
 If you haven't already:
 
 - Install `Node.js` and `npm` here: [https://nodejs.org/en/](https://nodejs.org/en/)
