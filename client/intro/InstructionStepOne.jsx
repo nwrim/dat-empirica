@@ -9,7 +9,7 @@ export default class InstructionStepOne extends React.Component {
     return (
       <Centered>
         <div className="instructions">
-          <h1> Instructions 1 </h1>
+          <h1 className="fw-bold"> Instructions 1 </h1>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio,
             animi? Quae autem asperiores officiis voluptatum fuga recusandae
@@ -18,10 +18,19 @@ export default class InstructionStepOne extends React.Component {
           </p>
 
           <p>
-            <button type="button" onClick={onPrev} disabled={!hasPrev}>
+            <button
+              type="button"
+              onClick={onPrev}
+              disabled={!hasPrev}
+              className="btn btn-secondary btn-lg"
+            >
               Previous
             </button>
-            <button type="button" onClick={onNext} disabled={!hasNext}>
+            <button
+              type="button"
+              onClick={onNext}
+              disabled={!hasNext}
+              className="btn btn-secondary btn-lg">
               Next
             </button>
           </p>

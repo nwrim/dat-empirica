@@ -14,7 +14,7 @@ const TimedButton_1 = StageTimeWrapper((props) => {
   return (
     <button
       type="button"
-      className={`bp3-button bp3-icon-cross bp3-intent-danger bp3-large ${
+      className={`bp3-button bp3-icon-cross bp3-intent-danger ${
         player.get("satisfied") ? "bp3-minimal" : ""
       }`}
       onClick={onClick}
@@ -32,7 +32,7 @@ const TimedButton_2 = StageTimeWrapper((props) => {
   return (
     <button
       type="button"
-      className={`bp3-button bp3-icon-tick bp3-intent-success bp3-large ${
+      className={`bp3-button bp3-icon-tick bp3-intent-success ${
         player.get("satisfied") ? "" : "bp3-minimal"
       }`}
       onClick={onClick}
@@ -107,23 +107,23 @@ class TaskFinal extends React.Component {
     const { game, stage, player } = this.props;
       
     return (
-      <div className="taskFinal">
+      <div className="taskSandbox">
         <FinalWordStimulus {...this.props} />
-        <div className="satisfiedButtons">
-	    <TimedButton_1 
-	      stage={stage} 
-	      player={player}
-	      activateAt={game.treatment.stageDuration - 5}
-	      onClick={this.handleSatisfaction.bind(this, false)}
-	    />
+        <div className="mt-3">
+          <TimedButton_1 
+            stage={stage} 
+            player={player}
+            activateAt={game.treatment.stageDuration - 5}
+            onClick={this.handleSatisfaction.bind(this, false)}
+          />
 
-	    <TimedButton_2 
-	      stage={stage} 
-	      player={player}
-	      activateAt={game.treatment.stageDuration - 5}
-	      onClick={this.handleSatisfaction.bind(this, true)}
-	    />
-	</div>
+          <TimedButton_2 
+            stage={stage} 
+            player={player}
+            activateAt={game.treatment.stageDuration - 5}
+            onClick={this.handleSatisfaction.bind(this, true)}
+          />
+	      </div>
       </div>
     );
   }

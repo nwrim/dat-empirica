@@ -161,7 +161,7 @@ export default class ExitSurvey extends React.Component {
               </div>
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit" className="btn btn-primary btn-lg">Submit</button>
           </form>
         </div>
       </Centered>

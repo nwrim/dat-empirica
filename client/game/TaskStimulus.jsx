@@ -12,35 +12,35 @@ class SandboxStimulus extends React.Component {
 
     if (otherPlayers.length === 0) {
       return (
-      <ol>
+      <ul>
         {list.map((item, i) => {
             return (
               <li key={i}>
                 <Button icon="trash" onClick={() => { this.removeWord(item) }}/>{" "}
                 <Button icon="arrow-right" onClick={() => { this.moveWordToFinal(item) }} disabled={disabled}/>{" "}
-                {item.word}
+                {`${i+1}. ${item.word}`}
               </li>
               )
             }
           )
         }
-      </ol>
+      </ul>
       )
     }
     return (
-      <ol>
+      <ul>
         {list.map((item, i) => {
             return (
               <li key={i}>
                 <Button icon="trash" onClick={() => { this.removeWord(item) }}/>{" "}
                 <Button icon="arrow-right" onClick={() => { this.moveWordToFinal(item) }} disabled={disabled}/>{" "}
-                {item.word} [<font color={item.color}>{item.name === player.get("name") ? "You" : item.name}</font>]                
+                {`${i+1}. ${item.word}`} [<font color={item.color}>{item.name === player.get("name") ? "You" : item.name}</font>]                
               </li>
               )
             }
           )
         }
-      </ol>
+      </ul>
     )
   }
 
@@ -71,14 +71,16 @@ class SandboxStimulus extends React.Component {
     const { stage } = this.props;
     return (
 	  <div className="sandboxWord">
-	    <h2 align="center">Sandbox</h2>
-	    <h3 align="center">These words will NOT be graded</h3>
-	    <h3 align="center"><img src="/experiment/images/trash.svg" height="18px"/> : remove word,{" "}
-	    <img src="/experiment/images/arrow-left.svg" height="18px"/>
-	    <img src="/experiment/images/arrow-right.svg" height="18px"/> : move word</h3>
-	    <div className="sandboxWordList bp3-card">
-	      {this.showList(stage.get('sandboxWordList'))}
-	    </div>
+	    <h2 className="fw-bold">Sandbox</h2>
+	    <h5 className="text-secondary">These words will NOT be graded</h5>
+	    <h4>
+        <img src="/experiment/images/trash.svg" height="18px"/> : remove word,{" "}
+	      <img src="/experiment/images/arrow-left.svg" height="18px"/>
+	      <img src="/experiment/images/arrow-right.svg" height="18px"/> : move word
+      </h4>
+      <div className="sandboxWordList bp3-card">
+        {this.showList(stage.get('sandboxWordList'))}
+      </div>
 	  </div>
     )
   }
@@ -91,33 +93,33 @@ class FinalWordStimulus extends React.Component {
 
     if (otherPlayers.length === 0) {
       return (
-      <ol>
+      <ul>
         {list.map((item, i) => {
             return (
               <li key={i}>
                 <Button icon="arrow-left" onClick={() => { this.moveWordToSandbox(item) }}/>{" "}
-                {item.word}
+                {`${i+1}. ${item.word}`}
               </li>
               )
             }
           )
         }
-      </ol>
+      </ul>
       )
     }
     return (
-      <ol>
+      <ul>
         {list.map((item, i) => {
             return (
               <li key={i}>
                 <Button icon="arrow-left" onClick={() => { this.moveWordToSandbox(item) }}/>{" "}
-                {item.word} [<font color={item.color}>{item.name === player.get("name") ? "You" : item.name}</font>]
+                {`${i+1}. ${item.word}`} [<font color={item.color}>{item.name === player.get("name") ? "You" : item.name}</font>]
               </li>
               )
             }
           )
         }
-      </ol>
+      </ul>
     )
   }
   
@@ -139,13 +141,13 @@ class FinalWordStimulus extends React.Component {
     const len = finalWordList.length;
     
     return (
-	    <div className="finalWord">
-	      <h2  align="center">Final List</h2>
-	      <h3 align="center">These words will be graded.</h3>
-	      { len >= 10 && <h3 align="center">Move a word to add something else.</h3>}
-	      { !(len >= 10) && <h3 align="center">You can add {10 - len} more word(s)</h3>}
-	      <div className="finalWordList bp3-card">
-		{this.showList(finalWordList)}
+	    <div className="sandboxWord">
+	      <h2 className="fw-bold">Final List</h2>
+	      <h5 className="text-secondary">These words will be graded.</h5>
+	      { len >= 10 && <h4>Move a word to add something else.</h4>}
+	      { !(len >= 10) && <h4>You can add {10 - len} more word(s)</h4>}
+	      <div className="sandboxWordList bp3-card">
+		      {this.showList(finalWordList)}
 	      </div>
 	    </div>
     )

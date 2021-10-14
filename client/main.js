@@ -10,7 +10,7 @@ import InstructionStepOne from "./intro/InstructionStepOne";
 import InstructionStepTwo from "./intro/InstructionStepTwo";
 import Quiz from "./intro/Quiz";
 import NewPlayer from "./intro/NewPlayer";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 // Set the About Component you want to use for the About dialog (optional).
 Empirica.about(About);
 

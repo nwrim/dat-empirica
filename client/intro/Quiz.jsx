@@ -26,7 +26,7 @@ export default class Quiz extends React.Component {
     return (
       <Centered>
         <div className="quiz">
-          <h1> Quiz </h1>
+          <h1 className="fw-bold"> Quiz </h1>
           <form onSubmit={this.handleSubmit}>
             <p>
               <label htmlFor="sum">What is 2+2?</label>
@@ -40,6 +40,7 @@ export default class Quiz extends React.Component {
                 onChange={this.handleChange}
                 autoComplete="off"
                 required
+                className="form-control w-auto"
               />
             </p>
             <p>
@@ -56,14 +57,20 @@ export default class Quiz extends React.Component {
                 onChange={this.handleChange}
                 autoComplete="off"
                 required
+                className="form-control w-auto"
               />
             </p>
 
             <p>
-              <button type="button" onClick={onPrev} disabled={!hasPrev}>
+              <button
+                type="button"
+                onClick={onPrev}
+                disabled={!hasPrev}
+                className="btn btn-secondary btn-lg"
+              >
                 Back to instructions
               </button>
-              <button type="submit">Submit</button>
+              <button type="submit" className="btn btn-primary btn-lg">Submit</button>
             </p>
           </form>
         </div>

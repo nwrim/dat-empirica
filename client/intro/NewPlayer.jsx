@@ -24,11 +24,11 @@ export default class NewPlayer extends Component {
       <Centered>
         <div >
           <form onSubmit={this.handleSubmit}>
-            <h1>Identification</h1>
+            <h1 className="fw-bold">Identification</h1>
 
             <p>
               Please enter your id:
-                        </p>
+            </p>
 
             <input
               dir="auto"
@@ -39,13 +39,10 @@ export default class NewPlayer extends Component {
               onChange={this.handleUpdate}
               required
               autoComplete="off"
+              className="form-control w-auto mb-2"
             />
 
-            <br />
-
-            <p>
-              <button type="submit">Submit</button>
-            </p>
+            <button type="submit" className="btn btn-primary btn-lg">Submit</button>
 
           </form>
         </div>

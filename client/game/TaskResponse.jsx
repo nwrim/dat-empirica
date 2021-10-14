@@ -37,23 +37,21 @@ export default class TaskResponse extends React.Component {
     const value = this.state.inputValue;
     return (
       <input
-        type={"text"}
+        type="text"
         onChange={this.handleChange}
         value={value}
         required
+        className="form-control"
       />
     );
   }
 
   render() {
     return (
-      <div className="task-response">
-        <form className="task-response-form" onSubmit={this.handleSubmit}>
-          {this.renderInput()}
-
-          <button type="submit">Add Word</button>
-        </form>
-      </div>
+      <form className="task-response" onSubmit={this.handleSubmit}>
+        {this.renderInput()}
+        <button type="submit" className="btn btn-primary">Add Word</button>
+      </form>
     );
   }
 }
