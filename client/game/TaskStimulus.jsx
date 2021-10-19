@@ -65,6 +65,9 @@ class SandboxStimulus extends React.Component {
       object: item,
       at: moment(TimeSync.serverTime(null, 1000)),
     });
+    if (stage.get('finalWordList').length >= 10) {
+      console.log('overflow')
+    }
   }
 
   render() {
@@ -144,7 +147,7 @@ class FinalWordStimulus extends React.Component {
 	    <div className="sandboxWord">
 	      <h2 className="fw-bold">Final List</h2>
 	      <h5 className="text-secondary">These words will be graded.</h5>
-	      { len >= 10 && <h4>Move a word to add something else.</h4>}
+	      { len >= 10 && <h4 className="text-danger fw-bold">Move a word to add something else.</h4>}
 	      { !(len >= 10) && <h4>You can add {10 - len} more word(s)</h4>}
 	      <div className="sandboxWordList bp3-card">
 		      {this.showList(finalWordList)}

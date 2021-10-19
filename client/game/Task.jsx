@@ -110,6 +110,20 @@ class TaskFinal extends React.Component {
       <div className="taskSandbox">
         <FinalWordStimulus {...this.props} />
         <div className="mt-3">
+          <div className="form-check form-switch ps-0 float-end">
+            <label className="form-check-label" for="customSwitch">
+              I am satisfied with the above list
+            </label>
+            <input
+              type="checkbox"
+              className="form-check-input ms-3 float-end"
+              id="customSwitch"
+              checked={player.get("satisfied")}
+              onClick={this.handleSatisfaction.bind(this, !player.get("satisfied"))}
+            />
+          </div>
+        </div>
+        {/* <div className="mt-3">
           <TimedButton_1 
             stage={stage} 
             player={player}
@@ -123,7 +137,7 @@ class TaskFinal extends React.Component {
             activateAt={game.treatment.stageDuration - 5}
             onClick={this.handleSatisfaction.bind(this, true)}
           />
-	      </div>
+	      </div> */}
       </div>
     );
   }

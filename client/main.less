@@ -1,14 +1,39 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700");
 
+html {
+  font-size: 12px;
+}
 .grid {
   font-family: "Open Sans", sans-serif;
   main {
+    padding-bottom: 1.5rem;
     min-height: calc(100vh - 50px);
     .game {
       height: 100%;
     }
   }
 }
+.player-profile {
+  height: calc(100vh - 120px);  
+  ol{
+    margin-top: 3rem;
+    li {
+      margin-bottom: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+  @media (max-width: 1399.98px) {
+    height: auto;
+    ol{
+      margin-top: inherit;
+      li {
+        margin-bottom: inherit;
+        line-height: inherit;
+      }
+    }
+  }
+}
+
 .taskSandbox {
   .sandboxWord {
     .sandboxWordList {
@@ -32,12 +57,12 @@
     margin-top: 1rem;
     input {
       flex-basis: 100%;
-      font-size: 14px;
+      // font-size: 14px;
     }
     button {
       min-width: 90px;
       margin-left: 0.5rem;
-      font-size: 14px;
+      // font-size: 14px;
     }
   }
 }
@@ -174,7 +199,7 @@
 
   .chat {
     min-height: 200px;
-    height: calc(100vh - 320px);
+    height: calc(100vh - 330px);
     @media (max-width: 1399.98px) {
       height: calc(100vh - 520px);
     }

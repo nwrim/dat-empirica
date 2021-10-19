@@ -3,7 +3,7 @@ import React from "react";
 export default class PlayerProfile extends React.Component {
   renderRules() {  
     return (
-      <div className="alert alert-secondary" role="alert">
+      <div className="alert alert-secondary player-profile" role="alert">
         <h2 className="fw-bold">Rules</h2>
         <ol>
           <li>Only <b>single words</b> in English.</li>
