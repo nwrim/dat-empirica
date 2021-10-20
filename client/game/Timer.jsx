@@ -14,7 +14,7 @@ class timer extends React.Component {
 
     return (
       <div className={classes.join(" ")}>
-        <h4>Timer</h4>
+        <h2 className="fw-bold">Timer</h2>
         <span className="seconds">{remainingSeconds}</span>
       </div>
     );
