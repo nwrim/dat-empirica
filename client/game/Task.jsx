@@ -105,21 +105,25 @@ class TaskFinal extends React.Component {
 
   render() {
     const { game, stage, player } = this.props;
-      
+    const curStatus = player.get("satisfied")  
     return (
       <div className="taskSandbox">
         <FinalWordStimulus {...this.props} />
         <div className="mt-3">
           <div className="form-check form-switch ps-0 float-end">
             <label className="form-check-label" for="customSwitch">
-              I am satisfied with the above list
+              {
+                curStatus
+                  ? "Toggle if you are no longer satisfied with the final list"
+                  : "Toggle if you are satisfied with the final list"
+              }
             </label>
             <input
               type="checkbox"
               className="form-check-input ms-3 float-end"
               id="customSwitch"
               checked={player.get("satisfied")}
-              onClick={this.handleSatisfaction.bind(this, !player.get("satisfied"))}
+              onClick={this.handleSatisfaction.bind(this, !curStatus)}
             />
           </div>
         </div>
