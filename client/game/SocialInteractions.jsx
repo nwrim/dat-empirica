@@ -56,7 +56,11 @@ export default class SocialInteractions extends React.Component {
     }));
  
     if (otherPlayers.length === 0) {
-      return null;
+      return (
+        <div className="social-interactions">
+          <Timer stage={stage} /> 
+        </div>
+      );
     }
 
     return (

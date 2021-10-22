@@ -6,9 +6,15 @@ import Sorry from "./exit/Sorry";
 import About from "./game/About";
 import Round from "./game/Round";
 import Consent from "./intro/Consent";
-import InstructionStepOne from "./intro/InstructionStepOne";
-import InstructionStepTwo from "./intro/InstructionStepTwo";
-import Quiz from "./intro/Quiz";
+import Overview from "./intro/Overview";
+import Rules from "./intro/Rules";
+import InterfaceOne from "./intro/InterfaceOne";
+import InterfaceTwo from "./intro/InterfaceTwo";
+import InterfaceThree from "./intro/InterfaceThree";
+import InterfaceSocial from "./intro/InterfaceSocial";
+import Grading from "./intro/Grading";
+import IndividualQuiz from "./intro/IndividualQuiz";
+import GroupQuiz from "./intro/GroupQuiz";
 import NewPlayer from "./intro/NewPlayer";
 import "bootstrap/dist/css/bootstrap.min.css";
 // Set the About Component you want to use for the About dialog (optional).
@@ -24,11 +30,16 @@ Empirica.newPlayer(NewPlayer);
 // At this point they have been assigned a treatment. You can return
 // different instruction steps depending on the assigned treatment.
 Empirica.introSteps((game, treatment) => {
-  const steps = [InstructionStepOne];
+  const steps = [Overview, Rules, InterfaceOne, InterfaceTwo, Grading];
   if (treatment.playerCount > 1) {
-    steps.push(InstructionStepTwo);
+    steps.push(InterfaceSocial);
   }
-  steps.push(Quiz);
+  steps.push(InterfaceThree)
+  if (game.treatment.playerCount > 1) {
+    steps.push(GroupQuiz);
+  } else {
+    steps.push(IndividualQuiz);
+  }
   return steps;
 });
 
