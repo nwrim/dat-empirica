@@ -6,7 +6,9 @@ import { Radio, RadioGroup } from "@blueprintjs/core";
 
 export default class GroupQuiz extends React.Component {
   state = {
-    closer: "",
+    nFinalWords: "",
+    nRecomWords: "",
+    criterion: "",
     gradedlist: ""
   };
 
@@ -32,7 +34,9 @@ export default class GroupQuiz extends React.Component {
 
     //it should be this.state.nParticipants !== "3" but we don't have "treatment" in QUIZ
     if (
-      this.state.closer !== "pidgeon" ||
+      this.state.nFinalWords !== "10" ||
+      this.state.nRecomWords !== "10" ||
+      this.state.criterion !== "different" ||
       this.state.gradedlist !== "final"
     ) {
       AlertToaster.show({
@@ -51,23 +55,70 @@ export default class GroupQuiz extends React.Component {
         <div className="quiz">
           <h1 className={"bp3-heading"}> Quiz </h1>
           <form onSubmit={this.handleSubmit}>
-
+          <div className="bp3-form-group">
+              <label className="bp3-label" htmlFor="number-of-participants">
+                What is the maximum amount of words you can put in your Final List?
+              </label>
+              <div className="bp3-form-content">
+                <input
+                  id="nFinalWords"
+                  className="bp3-input"
+                  type="number"
+                  min="0"
+                  max="150"
+                  step="1"
+                  dir="auto"
+                  name="nFinalWords"
+                  value={this.state.nFinalWords}
+                  onChange={this.handleChange}
+                  required
+                />
+              </div>
+            </div>
+            <div className="bp3-form-group">
+              <label className="bp3-label" htmlFor="number-of-participants">
+                How many words do we encourage you to submit?
+              </label>
+              <div className="bp3-form-content">
+                <input
+                  id="nRecomWords"
+                  className="bp3-input"
+                  type="number"
+                  min="0"
+                  max="150"
+                  step="1"
+                  dir="auto"
+                  name="nRecomWords"
+                  value={this.state.nRecomWords}
+                  onChange={this.handleChange}
+                  required
+                />
+              </div>
+            </div>
             <div className="bp3-form-group">
               <div className="bp3-form-content">
                 <RadioGroup
-                  label="Based on our criterion, which word set will get mor bonus?"
+                  label="What kind of words do you have to come up with to get the most bonus?"
                   onChange={this.handleRadioChange}
-                  selectedValue={this.state.closer}
-                  name="closer"
+                  selectedValue={this.state.criterion}
+                  name="criterion"
                   required
                 >
                   <Radio
-                    label="{dog, puppy}"
-                    value="puppy"
+                    label="words that are very similar to each other"
+                    value="similar"
                   />
                   <Radio
-                    label="{dog, pidgeon}"
-                    value="pidgeon"
+                    label="words that are most pleasant to hear"
+                    value="pleasant"
+                  />
+                  <Radio
+                    label="words that are very different from each other"
+                    value="different"
+                  />
+                  <Radio
+                    label="words that are most unpleasant to hear"
+                    value="unpleasant"
                   />
                 </RadioGroup>
               </div>

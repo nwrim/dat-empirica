@@ -15,7 +15,7 @@ export default class InterfaceSocial extends React.Component {
           You will play this game simultaneously with{" "}
           {treatment.playerCount - 1} other player(s) in real-time.
           </strong>{" "}
-          You will see your and your teammates' color in the top right of the screen.
+          You will see your and your teammates' color and icon in the top right of the screen.
           You can check who is satisfied and who is not in that section.
           </p>
 

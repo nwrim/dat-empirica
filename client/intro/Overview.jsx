@@ -11,7 +11,7 @@ export default class Overview extends React.Component {
         <div className="instructions">
           <h1 className="fw-bold"> Game Overview </h1>
           <p>
-            In this game, you will be asked to come up with up to 10 nouns that are {" "}<strong>as different from each other as possible, in all meanings and uses of the words.</strong>{" "}
+            In this game, you will be asked to come up with nouns that are {" "}<strong>as different from each other as possible, in all meanings and uses of the words.</strong>{" "}
           </p>  
 
           {treatment.playerCount > 1 ? (

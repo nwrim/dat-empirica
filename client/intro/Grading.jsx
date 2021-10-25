@@ -43,7 +43,7 @@ export default class Grading extends React.Component {
 
           <p>
           We will use an algorithm to automatically evaluate the quality of your list, and you will receive a bonus based on that evaluation.{" "}
-          <strong>The artifical intelligence algorithm calculates the "distance" between each word based on its usage in real life. </strong>{" "}The average distance between the word will be used for assigning bonuses.
+          <strong>The algorithm calculates the "distance" between each word based on its usage in real life. </strong>{" "}The average distance between the word will be used for assigning bonuses.
           </p>
 
           <p>
