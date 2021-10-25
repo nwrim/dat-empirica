@@ -20,18 +20,18 @@ export default class Grading extends React.Component {
         <div className="instructions">
           <h1 className="fw-bold"> Submission and Grading </h1>
           <p>
-            You can submit your word set in two ways. The first way is simply running out of time. After {Math.ceil(treatment.stageDuration / 60.0)} minutes pass, the words in the final list will be saved and submitted for grading.
+            You can submit your word list in two ways. The first way is simply running out of time. After {Math.ceil(treatment.stageDuration / 60.0)} minutes pass, the words in the final list will be saved and submitted for grading.
           </p>
           {treatment.playerCount > 1 ? (
             <div>
               <p>
-                When you are satisfied with the current word set in the Final List, <strong>you can toggle the button under the Final List to signal that you are satisfied with the set.</strong>{" "}
-                You can toggle again to signal that you are no longer satisfied with the set. <strong> If everyone on the team is satisfied, the Final List will be submitted for grading.</strong>
+                When you are satisfied with the current word list in the Final List, <strong>you can toggle the button under the Final List to signal that you are satisfied with the list.</strong>{" "}
+                You can toggle again to signal that you are no longer satisfied with the list. <strong> If everyone on the team is satisfied, the Final List will be submitted for grading.</strong>
               </p>
             </div>
           ) : (
             <p>
-            When you are satisfied with the current word set in the Final List, you can toggle the button under the Final List to submit the Final List for grading.
+            When you are satisfied with the current word list in the Final List, you can toggle the button under the Final List to submit the Final List for grading.
             </p>
           )}
           <p>
@@ -42,12 +42,12 @@ export default class Grading extends React.Component {
           </div>
 
           <p>
-          We will use an artificial intelligence algorithm to evaluate the quality of your list, and you will be bonused based on that evaluation.{" "}
+          We will use an algorithm to automatically evaluate the quality of your list, and you will receive a bonus based on that evaluation.{" "}
           <strong>The artifical intelligence algorithm calculates the "distance" between each word based on its usage in real life. </strong>{" "}The average distance between the word will be used for assigning bonuses.
           </p>
 
           <p>
-          There also will be a deduction to the bonus if you submit less than 7 words that follow the rules. <em style={{ color: "red" }}>
+          There also will be a deduction to the bonus if you submit less than 10 words that follow the rules. <em style={{ color: "red" }}>
           We strongly encourage you to submit 10 words so that you do not get a deduction in bonus.
           </em>
           </p>

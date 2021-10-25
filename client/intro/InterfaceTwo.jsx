@@ -20,7 +20,7 @@ export default class InterfaceTwo extends React.Component {
           </p>
           <p>
             <strong>You can store up to 10 words in the Final List.</strong>{" "} 
-            If the Final List is full, the <img src="/experiment/images/arrow-right.svg" height="18px"/> button will be deactivated, 
+            If the Final List is full, the <img src="/experiment/images/arrow-right.svg" height="18px"/> button will deactivate, 
             and you will have to move a word back to the Sandbox to add another word to the Final List.
           </p>
 

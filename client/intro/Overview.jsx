@@ -11,8 +11,7 @@ export default class Overview extends React.Component {
         <div className="instructions">
           <h1 className="fw-bold"> Game Overview </h1>
           <p>
-            In this game, you will be asked to come up with a set of nouns that are {" "}<strong>as different from each other as possible, in all meanings and uses of the words.</strong>{" "}
-            For example, {"{"}"cat", "pigeon"{"}"} is better than {"{"}"cat", "kitten"{"}"} for this game, because "cat" and "kitten" are very close in meaning and used in similar context.
+            In this game, you will be asked to come up with up to 10 nouns that are {" "}<strong>as different from each other as possible, in all meanings and uses of the words.</strong>{" "}
           </p>  
 
           {treatment.playerCount > 1 ? (
@@ -22,11 +21,11 @@ export default class Overview extends React.Component {
                   You will play this game simultaneously with{" "}
                   {treatment.playerCount - 1} other player(s) in real-time
                 </strong>
-                . As we will explain in more detail later, you and your teammates will submit a single noun set containing up to{" "}<strong> 10 nouns</strong>.
+                . As we will explain in more detail later, you and your teammates will submit a single noun list containing up to{" "}<strong> 10 nouns</strong>.
               </p>
 
               <p>
-              We will use an artificial intelligence algorithm to evaluate the quality of your list, and you will be bonused based on that evaluation.{" "}
+              We will use an algorithm to automatically evaluate the quality of your list, and you will be bonused based on that evaluation.{" "}
                 <strong> Note that "free-riding" is not permitted</strong>.{" "}
                 <em style={{ color: "red" }}>
                   If we detect that you are inactive during the game (for example, if you visit another tab outside the game), you will not receive payment.
@@ -36,8 +35,8 @@ export default class Overview extends React.Component {
 
           ) : (
             <p>
-              In this game, you will submit a single noun set containing up to{" "}<strong> 10 nouns</strong>. We
-              will use an artificial intelligence algorithm to evaluate the quality of your list, and you will be bonused based on that evaluation.
+              You will submit a single noun list containing up to{" "}<strong> 10 nouns</strong>. We
+              will use an algorithm to automatically evaluate the quality of your list, and you will be bonused based on that evaluation.
             </p>
           )}
 
