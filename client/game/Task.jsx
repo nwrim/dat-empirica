@@ -2,44 +2,33 @@ import React from "react";
 
 import TaskResponse from "./TaskResponse";
 import { SandboxStimulus, FinalWordStimulus } from "./TaskStimulus";
+import { MinExample } from "./MinExample";
 
 import { StageTimeWrapper } from "meteor/empirica:core";
 import { TimeSync } from "meteor/mizzao:timesync";
 import moment from "moment";
 
-const TimedButton_1 = StageTimeWrapper((props) => {
-  const { player, onClick, activateAt, remainingSeconds, stage } = props;
-
+const ToggleButton = StageTimeWrapper((props) => {
+  const { player, onClick, activateAt, remainingSeconds, curStatus, stage } = props;
   const disabled = remainingSeconds > activateAt;
   return (
-    <button
-      type="button"
-      className={`bp3-button bp3-icon-cross bp3-intent-danger ${
-        player.get("satisfied") ? "bp3-minimal" : ""
-      }`}
-      onClick={onClick}
-      disabled={disabled}
-    >
-      Unsatisfied
-    </button>
-  );
-});
-
-const TimedButton_2 = StageTimeWrapper((props) => {
-  const { player, onClick, activateAt, remainingSeconds, stage } = props;
-
-  const disabled = remainingSeconds > activateAt;
-  return (
-    <button
-      type="button"
-      className={`bp3-button bp3-icon-tick bp3-intent-success ${
-        player.get("satisfied") ? "" : "bp3-minimal"
-      }`}
-      onClick={onClick}
-      disabled={disabled}
-    >
-      Satisfied
-    </button>
+    <div className="form-check form-switch ps-0 float-end">
+      <label className="form-check-label" for="customSwitch">
+        {
+          curStatus
+            ? "Toggle if you are no longer satisfied with the final list"
+            : "Toggle if you are satisfied with the final list"
+        }
+      </label>
+      <input
+        type="checkbox"
+        className="form-check-input ms-3 float-end"
+        id="customSwitch"
+        checked={curStatus}
+        disabled={disabled}
+        onClick={onClick}
+      />
+    </div>
   );
 });
 
@@ -104,44 +93,20 @@ class TaskFinal extends React.Component {
   };
 
   render() {
-    const { game, stage, player } = this.props;
-    const curStatus = player.get("satisfied")  
+    const { game, stage, player, remainingSeconds } = this.props;
+    const curStatus = player.get("satisfied");
     return (
       <div className="taskSandbox">
         <FinalWordStimulus {...this.props} />
         <div className="mt-3">
-          <div className="form-check form-switch ps-0 float-end">
-            <label className="form-check-label" for="customSwitch">
-              {
-                curStatus
-                  ? "Toggle if you are no longer satisfied with the final list"
-                  : "Toggle if you are satisfied with the final list"
-              }
-            </label>
-            <input
-              type="checkbox"
-              className="form-check-input ms-3 float-end"
-              id="customSwitch"
-              checked={player.get("satisfied")}
-              onClick={this.handleSatisfaction.bind(this, !curStatus)}
-            />
-          </div>
+          <ToggleButton
+            stage = {stage}
+            player = {player}
+            activateAt={game.treatment.stageDuration - 5}
+            onClick={this.handleSatisfaction.bind(this, !curStatus)}
+            curStatus={curStatus}
+          />
         </div>
-        {/* <div className="mt-3">
-          <TimedButton_1 
-            stage={stage} 
-            player={player}
-            activateAt={game.treatment.stageDuration - 5}
-            onClick={this.handleSatisfaction.bind(this, false)}
-          />
-
-          <TimedButton_2 
-            stage={stage} 
-            player={player}
-            activateAt={game.treatment.stageDuration - 5}
-            onClick={this.handleSatisfaction.bind(this, true)}
-          />
-	      </div> */}
       </div>
     );
   }
