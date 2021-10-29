@@ -40,7 +40,7 @@ export default class IndividualExitSurvey extends React.Component {
         </h3>
         <p>
           <strong>
-            We will run the algorithm to calculate the quality of your answer within 24 hours, and will send the base pay and the bonus as soon as possible.
+          We will run the algorithm to calculate the quality of your answer within 24 hours, and will send the bonus as soon as possible.
           </strong>{" "}
         </p>
       </div>

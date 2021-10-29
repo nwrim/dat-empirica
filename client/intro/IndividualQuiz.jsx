@@ -41,7 +41,7 @@ export default class GroupQuiz extends React.Component {
     ) {
       AlertToaster.show({
         message:
-          "Sorry, you have one or more mistakes. Please ensure that you answer the questions correctly, or go back to the instructions",
+          "Sorry, you have one or more mistakes. Please ensure that you answer the questions correctly, or go back to the instructions. Please contact us if you are stuck.",
       });
     } else {
       this.props.onNext();

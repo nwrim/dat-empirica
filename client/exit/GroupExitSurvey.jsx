@@ -49,7 +49,7 @@ export default class GroupExitSurvey extends React.Component {
         </p>
         <p>
           <strong>
-            We will run the algorithm to calculate the quality of your answer within 24 hours, and will send the base pay and the bonus as soon as possible.
+            You will be paid via bonus to the first HIT. We will run the algorithm to calculate the quality of your answer within 24 hours, and will send the base pay and the bonus as soon as possible.
           </strong>{" "}
         </p>
       </div>
@@ -71,7 +71,7 @@ export default class GroupExitSurvey extends React.Component {
     } = this.state;
 
     return (
-      <div>
+      <div className='exit-survey'>
         {" "}
         <p>
           Please answer the following short survey. You do not have to provide

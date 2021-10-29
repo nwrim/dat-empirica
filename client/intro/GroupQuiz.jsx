@@ -51,7 +51,7 @@ export default class GroupQuiz extends React.Component {
     ) {
       AlertToaster.show({
         message:
-          "Sorry, you have one or more mistakes. Please ensure that you answer the questions correctly, or go back to the instructions",
+          "Sorry, you have one or more mistakes. Please ensure that you answer the questions correctly, or go back to the instructions. Please contact us if you are stuck.",
       });
     } else {
       this.props.onNext();
@@ -181,7 +181,7 @@ export default class GroupQuiz extends React.Component {
             <div className="bp3-form-group">
               <div className="bp3-form-content">
                 <RadioGroup
-                  label="Words on which list will get graded for bonus?"
+                  label="Words on which list will get graded for the bonus?"
                   onChange={this.handleRadioChange}
                   selectedValue={this.state.gradedlist}
                   name="gradedlist"
@@ -194,6 +194,9 @@ export default class GroupQuiz extends React.Component {
               </div>
             </div>
 
+            <p>
+            <strong>After passing the quiz, you should NOT be waiting more than 10 minutes in the lobby. The game should start even if you don't have enough people. Let us know by email/message if you stay in the lobby for more than 10 minutes after passing the quiz.</strong>
+            </p>
             <button
                 type="button"
                 onClick={onPrev}

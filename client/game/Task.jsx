@@ -2,7 +2,6 @@ import React from "react";
 
 import TaskResponse from "./TaskResponse";
 import { SandboxStimulus, FinalWordStimulus } from "./TaskStimulus";
-import { MinExample } from "./MinExample";
 
 import { StageTimeWrapper } from "meteor/empirica:core";
 import { TimeSync } from "meteor/mizzao:timesync";
